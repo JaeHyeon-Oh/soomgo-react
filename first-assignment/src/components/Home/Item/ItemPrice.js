@@ -1,11 +1,11 @@
 import React from 'react'
 import styledComponents from 'styled-components'
 
-const ItemPrice = ({ img, desc, price }) => {
+const ItemPrice = ({ image_url, service_name, price }) => {
   return (
     <ItemInfo>
-      <img src={img} />
-      <p className='desc'>{desc}</p>
+      <img src={image_url} />
+      <p className='desc'>{service_name}</p>
       <p className='price'>{price}</p>
     </ItemInfo>
   )

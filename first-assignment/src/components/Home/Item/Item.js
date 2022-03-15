@@ -1,11 +1,11 @@
 import React from 'react'
 import styledComponents from 'styled-components'
 
-const Item = ({ img, desc, price }) => {
+const Item = ({ image_url, service_name}) => {
   return (
     <ItemInfo>
-      <img src={img} />
-      <p className='desc'>{desc}</p>
+      <img src={image_url} />
+      <p className='desc'>{service_name}</p>
     </ItemInfo>
   )
 }
@@ -15,13 +15,14 @@ export default Item
 const ItemInfo = styledComponents.div`
   img{
     width: 100%;
-    height: 200px;
+    height: 150px;
     object-fit: cover;
     border-radius: 10px;
   }
   .desc{
     margin: 8px 0;
-    font-size: 20px;
+    font-size: 15px;
+    font-weight: bold;
   }
   .price{
     font-weight: bold;

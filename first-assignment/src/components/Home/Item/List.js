@@ -21,11 +21,16 @@ const List = ({img, name, field, rate}) => {
 export default List
 
 const ListInfo = styledComponents.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  
+  display: grid;
+  // flex-direction: column;
+  // align-items: center;
+  // cursor: pointer;
+  width:100px;
+  img{
+   
+    width: 100px;
+    border-radius: 50%;
+  }
   .name{
     margin: 15px 0 5px 0;
   }

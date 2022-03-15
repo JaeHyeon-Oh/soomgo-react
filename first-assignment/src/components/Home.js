@@ -6,35 +6,39 @@ import Knowhow from './Home/Knowhow'
 import Category from './Home/Category'
 import MiniBanner from './Home/MiniBanner'
 import WantService from './Home/WantService'
+import AppBanner from './Home/AppBanner'
+import SoomgoStory from './Home/SoomgoStory'
 const Home = () => {
   return (
     <>
       <MainBanner />
-      {/* <Category />
-      <MiniBanner /> */}
+      <Category />
+      <MiniBanner />
       <Knowhow />
       <WantService
-        title="지금 바로 원하는 서비스를 받아보세요!"
+        name="지금 바로 원하는 서비스를 받아보세요!"
       />
       <Content
-        title="숨고 인기 서비스"
+        name="숨고 인기 서비스"
       />
       <Popular />
-      {/* <AppBanner/> */}
+      <AppBanner/>
       <Content
-        title="쓱싹쓱싹 청소하는 날"
+        name="쓱싹쓱싹 청소하는 날"
       />
        <Content
-        title="취미의 재발견"
+        name="취미의 재발견"
       />
        <Content
-        title="2022 취준을 부탁해"
+        name="2022 취준을 부탁해"
       />
       <Content
-        title="무엇이든 고치는 고수들"
+       name="무엇이든 고치는 고수들"
       />
-      {/* <LocationList/>
-      <SoomgoStory/> */}
+      {/* <LocationList/> */}
+      <SoomgoStory
+      name="숨고 이야기"/>
+      {/* <BottomBanner/> */}
     </>
   )
 }

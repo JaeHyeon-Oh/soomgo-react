@@ -11,7 +11,7 @@ const List = ({img, name, field, rate}) => {
         <p className='field'>{field}</p>
         <div className='rate'>
           <StarIcon className='star'/>
-          <span>{rate} (19)</span>
+          <span>{rate.toFixed(1)}</span>
         </div>
       </ListInfo>
     </>  
@@ -21,11 +21,16 @@ const List = ({img, name, field, rate}) => {
 export default List
 
 const ListInfo = styledComponents.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  
+  display: grid;
+  // flex-direction: column;
+  // align-items: center;
+  // cursor: pointer;
+  width:100px;
+  img{
+   
+    width: 100px;
+    border-radius: 50%;
+  }
   .name{
     margin: 15px 0 5px 0;
   }

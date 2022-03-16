@@ -13,6 +13,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/sign-up" element={<Signup />} />
         <Route path='/search/pro' element={<SearchPro />}/>
+        {/* <Route path='/search/pro/:category' element={<SearchPro />}/> */}
       </Routes>
       <Footer />
     </BrowserRouter>

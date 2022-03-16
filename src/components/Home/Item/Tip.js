@@ -20,8 +20,10 @@ const Container = styledComponents.div`
   display: grid;
   grid-template-columns: 3fr 1fr;
   height: 100%;
-
+  
   img{
+    position: relative;
+
     width: 100%;
     height: 100%;
     object-fit: cover;

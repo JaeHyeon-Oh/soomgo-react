@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import axios from 'axios';
 import styledComponents from 'styled-components'
 import Item from './Item/Item'
 import Slider from "react-slick";
@@ -18,25 +19,31 @@ const settings = {
   dots: false,
   infinite: false,
   speed: 500,
-  slidesToShow: 4,
+  slidesToShow: 3,
   slidesToScroll: 2,
   overflow: "hidden",
 };
 
-const Content = ({name,services}) => {
-  
+const SoomgoStory = ({name}) => {
+  const [stories, setStories] = useState([]);
+
+  useEffect(() => {
+      axios.get('http://3.39.83.84:8000/magazine/?format=json')
+          .then(response => {
+            setStories(response.data);
+          });
+  }, []);
   return (
     <>
-    
       <Container>
         <h1 className='title'>{name}</h1>
         <Slider {...settings}>
       
-        {services.map((element, index) => (
+        {stories.map((element) => (
                    
           <Item
-            image_url={element.image_url}
-            service_name= {element.service_name}
+            image_url={element.imageUrl}
+            service_name= {element.title}
           />
          
         ))}
@@ -48,7 +55,7 @@ const Content = ({name,services}) => {
   )
 }
 
-export default Content
+export default SoomgoStory
 
 const Container = styledComponents.div`
   max-width: 1200px;

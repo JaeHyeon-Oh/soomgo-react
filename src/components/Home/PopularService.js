@@ -1,18 +1,11 @@
 import React, { useState, useEffect } from 'react'
+import axios from 'axios';
 import styledComponents from 'styled-components'
-import Item from './Item/Item'
+import RequestItem from './Item/RequestItem'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// const items = [
-//   { service_name: "Juan",image_url :'https://assets.cdn.soomgo.com/images/banner/banner-model-recommend-service-web.png' },
-//   { service_name: "Jose",image_url :'https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png' },
-//   { service_name: "Silupu",image_url :'https://assets.cdn.soomgo.com/images/banner/banner-model-recommend-service-web.png' },
-//   { service_name: "Maza",image_url :'https://assets.cdn.soomgo.com/images/banner/banner-model-recommend-service-web.png' },
-//   { service_name: "Jose",image_url :'https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png' },
-//   { service_name: "Silupu",image_url :'https://assets.cdn.soomgo.com/images/banner/banner-model-recommend-service-web.png' },
-// ];
 
 const settings = {
   dots: false,
@@ -23,8 +16,15 @@ const settings = {
   overflow: "hidden",
 };
 
-const Content = ({name,services}) => {
-  
+const Content = ({name}) => {
+  const [services, setServices] = useState([]);
+
+  useEffect(() => {
+      axios.get('http://3.39.83.84:8000/service/?format=json')
+          .then(response => {
+            setServices(response.data);
+          });
+  }, []);
   return (
     <>
     
@@ -34,9 +34,10 @@ const Content = ({name,services}) => {
       
         {services.map((element, index) => (
                    
-          <Item
+          <RequestItem
             image_url={element.image_url}
             service_name= {element.service_name}
+            request_count={element.request_count}
           />
          
         ))}
